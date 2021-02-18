@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container';
 
 import Login from '../LoginComponents/Login'
-import Register from '../LoginComponents/GetStarted'
+import Register from '../LoginComponents/Register'
 
 const Auth = (props) => {
 

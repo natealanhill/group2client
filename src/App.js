@@ -1,6 +1,5 @@
 import './App.css';
-import Button from '@material-ui/core/Button'
-import GetStarted from './components/LoginComponents/GetStarted'
+import GetStarted from './components/GetStarted'
 import logo from './assets/logo.png'
 
 
