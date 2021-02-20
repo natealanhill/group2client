@@ -4,13 +4,20 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import { useHistory } from 'react-router-dom';
 
 
 const Login = (props) => {
-
+  
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const history = useHistory()
+
+    const routeChange = () =>{ 
+      let path = `/dashboard`; 
+      history.push(path);
+    }
 
     return(
         
@@ -51,7 +58,7 @@ const Login = (props) => {
               fullWidth
               variant="contained"
               color="primary"
-             
+              onClick = {routeChange}
             >
               Sign In
             </Button>
