@@ -4,7 +4,9 @@
 
 
 .App-header {
-  background-image: url("/Users/a/Desktop/BeerAppFrontEnd/beer-frontend/group2client/src/assets/background.jpg"); 
+  
+  background-image: url("../assets/background.jpg"); 
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
