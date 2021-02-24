@@ -1,19 +1,40 @@
 import './App.css';
 import GetStarted from './components/GetStarted'
+
+
 import logo from './assets/logo.png'
 import BeerCard from "./components/Cards/BeerCard"
 
 
 
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+
+
+
+import Dashboard from './components/Dashboard'
+
 function App() {
 
-  const welcomeStyles = {
-    background: 'rgba(0, 0, 0, 0.55)',
-  }
 
   return (
+    <Router>
     <div className="App">
       <header className="App-header">
+
+    
+          <Switch>
+            <Route exact path="/">
+              <GetStarted /> 
+            </Route>
+            {/* <Button variant="contained">Get Started</Button> */}
+
+            <Route exact path="/dashboard">
+              <Dashboard />
+            </Route>
+
+          </Switch>
+
+
         <img src={logo} className="App-logo" alt="logo" style={{ width: '15%', height: '15%' }} />
         <p>
           <code style={welcomeStyles}>Welcome to your Beer Wingman.</code>
@@ -22,8 +43,10 @@ function App() {
         <GetStarted />
         <BeerCard />
         {/* <Button variant="contained">Get Started</Button> */}
+
       </header>
     </div>
+    </Router>
   );
 }
 

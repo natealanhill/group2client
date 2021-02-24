@@ -40,12 +40,16 @@ const Auth = (props) => {
     // LOGIC 
     // Allows for a display depending on toggle. Keep this for future code. Useful.
     const authTernary = () => {
+
       return login ? (
           <Login />
       ) : (
           <Register  />
       );
   };
+
+
+
 
   const loginToggle = (event) => {
     event.preventDefault();
