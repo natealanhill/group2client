@@ -1,7 +1,6 @@
 import './App.css';
 import GetStarted from './components/GetStarted'
 
-import logo from './assets/logo.png'
 import BeerCard from "./components/Cards/BeerCard"
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
@@ -30,6 +29,7 @@ function App() {
           </Switch>
        
         <BeerCard />
+        
         {/* <Button variant="contained">Get Started</Button> */}
 
       </header>
