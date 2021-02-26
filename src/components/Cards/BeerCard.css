@@ -11,13 +11,13 @@
     
 }
 
-#content-box{
+/* #content-box{
 box-sizing: content-box;
 width: 100%;
 border: 5px ridge black;
 padding: 100px;
 background-color: rgba(130, 94, 5, 0.606);
-}
+} */
 
 /* #box{
     background-color: rgba(186, 135, 8, 0.489);

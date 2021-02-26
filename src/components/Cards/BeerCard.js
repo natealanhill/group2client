@@ -18,6 +18,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import './BeerCard.css';
+import TextField from '@material-ui/core/TextField';
 
 
 const options = [
@@ -98,8 +99,10 @@ function ConfirmationDialogRaw(props) {
                 <Button onClick={handleOk} color="primary">
                     Ok
           </Button>
+
             </DialogActions>
         </Dialog>
+
     );
 }
 
@@ -134,6 +137,7 @@ const BeerCard = () => {
     // const bull = <span className={classes.bullet}>•</span>;
     const [open, setOpen] = React.useState(false);  //-----------
     const [value, setValue] = React.useState('Select');//-----------
+    const { onClose, value: valueProp, ...other } = value;
 
     const handleClickListItem = () => {
         setOpen(true);
@@ -145,6 +149,18 @@ const BeerCard = () => {
         if (newValue) {
             setValue(newValue);
         }
+    };
+
+    const handleEdit = () => {
+        onClose(value);
+    };
+
+    const handleCancel = () => {
+        onClose(value);
+    };
+
+    const handleSubmit = () => {
+        onClose(value);
     };
     //---------------------------------
     return (
@@ -182,7 +198,36 @@ const BeerCard = () => {
                                 onClose={handleClose}
                                 value={value}
                             />
+
+
+{/* ========================== */}
+<form className={classes.root} noValidate autoComplete="off">
+  <TextField id="standard-secondary" label="Standard secondary" color="secondary" />
+  <TextField
+    id="filled-secondary"
+    label="Filled secondary"
+    variant="filled"
+    color="secondary"
+  />
+  <TextField
+    id="outlined-secondary"
+    label="Outlined secondary"
+    variant="outlined"
+    color="secondary"
+  />
+</form>
+{/* ========================================== */}
                         </List>
+                        <Button onClick={handleSubmit} color= "primary">
+                         Submit
+                         </Button>
+                         <Button onClick={handleEdit} color= "primary">
+                         Edit
+                         </Button>
+                         <Button onClick={handleCancel} color= "primary">
+                         Cancel
+                         </Button>
+
                     </Typography>
                 </CardContent>
             </Card>
