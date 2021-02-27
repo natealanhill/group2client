@@ -7,17 +7,26 @@
     font-size: 60px;
     font-style: italic;
     
-    background-color: rgba(130, 94, 5, 0.606);
+background-color: rgba(130, 94, 5, 0.606);
     
 }
 
-/* #content-box{
-box-sizing: content-box;
-width: 100%;
-border: 5px ridge black;
-padding: 100px;
-background-color: rgba(130, 94, 5, 0.606);
-} */
+ #outlined-secondary{ 
+box-sizing:border-box;
+width: 300px;
+height: 100px;
+/* background-color: rgba(130, 94, 5, 0.606); */ 
+} 
+
+#filled-secondary{
+    box-sizing:border-box;
+    width: 200px;
+    height: 80px;
+}
+
+#standard-secondary{
+border-style: ridge;
+} 
 
 /* #box{
     background-color: rgba(186, 135, 8, 0.489);

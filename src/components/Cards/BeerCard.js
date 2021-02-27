@@ -19,7 +19,8 @@ import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import './BeerCard.css';
 import TextField from '@material-ui/core/TextField';
-
+import SimpleRating from './beerRating';
+import Box from '@material-ui/core/Box';
 
 const options = [
     'None',
@@ -87,11 +88,14 @@ function ConfirmationDialogRaw(props) {
                     value={value}
                     onChange={handleChange}
                 >
+
                     {options.map((option) => (
                         <FormControlLabel value={option} key={option} control={<Radio />} label={option} />
                     ))}
                 </RadioGroup>
+                
             </DialogContent>
+            
             <DialogActions>
                 <Button autoFocus onClick={handleCancel} color="primary">
                     Cancel
@@ -102,6 +106,9 @@ function ConfirmationDialogRaw(props) {
 
             </DialogActions>
         </Dialog>
+        
+
+        
 
     );
 }
@@ -198,20 +205,34 @@ const BeerCard = () => {
                                 onClose={handleClose}
                                 value={value}
                             />
-
-
+{/* <div>
+      <Box component="fieldset" mb={3} borderColor="transparent">
+        <Typography component="legend">Controlled</Typography>
+        <Rating
+          name="simple-controlled"
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+        />
+      </Box>
+      </div> */}
+      
 {/* ========================== */}
 <form className={classes.root} noValidate autoComplete="off">
-  <TextField id="standard-secondary" label="Standard secondary" color="secondary" />
+  <TextField id="standard-secondary" label="Beer Name" color="secondary" variant="outlined" />
   <TextField
+  
     id="filled-secondary"
-    label="Filled secondary"
-    variant="filled"
+    label="Location"
+    variant="outlined"
     color="secondary"
   />
+  <br/>
+  <br/>
   <TextField
     id="outlined-secondary"
-    label="Outlined secondary"
+    label="comment"
     variant="outlined"
     color="secondary"
   />
@@ -231,7 +252,9 @@ const BeerCard = () => {
                     </Typography>
                 </CardContent>
             </Card>
+            
         </div>
+        
 
 
 
