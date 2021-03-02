@@ -65,7 +65,7 @@ const Register = () => {
               autoComplete="lastName"
               autoFocus
               onChange={(e)=> setLastName(e.target.value)} 
-              value={firstName}
+              value={lastName}
             />
       
               <TextField
