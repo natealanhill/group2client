@@ -12,6 +12,8 @@ const Register = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const register = async () => {
       let user = {
         email,
@@ -36,8 +38,49 @@ const Register = () => {
         <CssBaseline />
         <div>
           <form  noValidate>
-            <TextField
+
+
+          <TextField
               variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="firstName"
+              label="First Name"
+              name="firstName"
+              autoComplete="firstName"
+              autoFocus
+              onChange={(e)=> setFirstName(e.target.value)} 
+              value={firstName}
+            />
+
+          <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              autoComplete="lastName"
+              autoFocus
+              onChange={(e)=> setLastName(e.target.value)} 
+              value={firstName}
+            />
+      
+              <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="birthday"
+              label ="Date of Birth"
+              name="birthday"
+/>
+            
+
+          <TextField
+                variant="outlined"
               margin="normal"
               required
               fullWidth
