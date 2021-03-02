@@ -19,6 +19,23 @@ const Login = (props) => {
       history.push(path);
     }
 
+    // Once the form is
+  //   const handleSubmit = (event) => {
+  //     event.preventDefault();
+  //     fetch(`http://localhost:3000/user/login`, {
+  //         method: 'POST',
+  //         body: JSON.stringify({email: email, password: password}),
+  //         headers: new Headers({
+  //             'Content-Type': 'application/json'
+  //         })
+  //     }).then(
+  //         (response) => response.json()
+  //     ).then((data) => {
+  //         props.updateToken(data.sessionToken);
+  //     });
+  // }
+
+
     return(
         
         <Container component="main" maxWidth="xs">
