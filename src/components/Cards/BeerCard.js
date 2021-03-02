@@ -23,7 +23,6 @@ import SimpleRating from './beerRating';
 import Box from '@material-ui/core/Box';
 
 const options = [
-    'None',
     'Ale',
     'Lager',
     'Porter',
@@ -34,9 +33,7 @@ const options = [
     'Wheat',
     'Pilsner',
     'Sour Ale',
-    'Empty',
-    'Empty',
-    'Empty',
+    'Other'
 ];
 
 
@@ -174,7 +171,7 @@ const BeerCard = () => {
         <div>
             <Card className={classes.root} variant="outlined ">
                 <CardContent>
-                    <Typography variant="p" id='header'>Your Beer Wingman!!!</Typography>
+                    <Typography variant="p" id='header'>Add your beer!</Typography>
                     <Typography variant="h5" component="h2">
 
                         <List component="div" role="list" id="box">
@@ -241,12 +238,6 @@ const BeerCard = () => {
                         </List>
                         <Button onClick={handleSubmit} color= "primary">
                          Submit
-                         </Button>
-                         <Button onClick={handleEdit} color= "primary">
-                         Edit
-                         </Button>
-                         <Button onClick={handleCancel} color= "primary">
-                         Cancel
                          </Button>
 
                     </Typography>
