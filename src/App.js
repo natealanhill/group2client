@@ -1,15 +1,7 @@
 import './App.css';
 import GetStarted from './components/GetStarted'
-
-
-import logo from './assets/logo.png'
-import BeerCard from "./components/Cards/BeerCard"
-
-
-
+  
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-
-
 
 import Dashboard from './components/Dashboard'
 
@@ -33,6 +25,7 @@ function App() {
             </Route>
 
           </Switch>
+<<<<<<< HEAD
 
 
         <img src={logo} className="App-logo" alt="logo" style={{ width: '15%', height: '15%' }} />
@@ -42,6 +35,11 @@ function App() {
         </p>
         <GetStarted />
         <BeerCard />
+=======
+       
+       
+        
+>>>>>>> 00d97450c00d2f893716485c2a2595d15f20f169
         {/* <Button variant="contained">Get Started</Button> */}
 
       </header>
