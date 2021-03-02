@@ -1,8 +1,6 @@
 import './App.css';
 import GetStarted from './components/GetStarted'
-
-import BeerCard from "./components/Cards/BeerCard"
-
+  
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import Dashboard from './components/Dashboard'
@@ -28,7 +26,7 @@ function App() {
 
           </Switch>
        
-        <BeerCard />
+       
         
         {/* <Button variant="contained">Get Started</Button> */}
 
