@@ -15,7 +15,7 @@ import BeerCard from './Cards/BeerCard';
 import {Link} from "react-router-dom";
 import ViewBeer from './Cards/ViewBeer';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const useStyles = makeStyles((theme) => ({
     icon: {
       marginRight: theme.spacing(2),
