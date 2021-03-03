@@ -13,7 +13,7 @@ import Modal from "@material-ui/core/Modal";
 
 import BeerCard from './Cards/BeerCard';
 
-
+import ViewBeer from './Cards/ViewBeer'; 
 
 const Dashboard = () => {
     const useStyles = makeStyles((theme) => ({
@@ -83,7 +83,7 @@ const Dashboard = () => {
             <Button onClick={handleOpen} variant="contained">
                 Add Beer
             </Button>
-            <Button onClick={viewCard} variant="contained">
+            <Button onClick={ViewBeer} variant="contained">
               View Your Beers
             </Button>
 
