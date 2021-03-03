@@ -83,6 +83,9 @@ const Dashboard = () => {
             <Button onClick={handleOpen} variant="contained">
                 Add Beer
             </Button>
+            <Button onClick={viewCard} variant="contained">
+              View Your Beers
+            </Button>
 
             <Modal
         aria-labelledby="transition-modal-title"

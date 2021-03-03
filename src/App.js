@@ -26,7 +26,7 @@ function App() {
 
           </Switch>
        
-       
+          <ViewAllBeers />
         
         {/* <Button variant="contained">Get Started</Button> */}
 
