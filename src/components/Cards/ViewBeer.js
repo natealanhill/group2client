@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import ViewBeerCard from './ViewBeerCard'
 
 const ViewBeer = () => {
     const [beers, setbeers] = useState([])
@@ -42,21 +42,26 @@ const ViewBeer = () => {
         <div color="white">
             <container background-color="white">
             {console.log("ViewBeer Component")}
-            VIEW BEER
+            
 
             {beers.map(beer => {
                 return (
                     <div className="viewBeerCard">
-                        <h3>{beer.name}</h3>
-                        <p> {beer.location} </p>
-                        <p> {beer.rating} </p>
-                        <p> {beer.notes} </p>
+
+                        <ViewBeerCard name={beer.name}
+                            location={beer.location}
+                            rating={beer.rating}
+                            comments={beer.comments}
+                            img={beer.img}/>
+                            <br>
+                            </br>
                     </div>
                 )
                 
             })}
             </container>
             </div>
+            
         
     )
 }
