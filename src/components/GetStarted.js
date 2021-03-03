@@ -70,7 +70,7 @@ const GetStarted = () => {
             {/* This is where all the logic for login and signup rendering is handled */}
             <Auth />
           </div>
-        </Fade>
+        </Fade> 
       </Modal>
     </div>
   );

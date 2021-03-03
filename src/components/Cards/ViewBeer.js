@@ -29,6 +29,10 @@ import React from 'react';
 // rating - from table
 // notes - from table
 // Notes
+const ViewBeer = () => {
+    
+
+
 
 function displayMine() {
     const accessToken = localStorage.getItem('SessionToken')
@@ -50,3 +54,11 @@ function displayMine() {
         }
 
 
+displayMine();
+return(
+    <div>
+        VIEW BEER
+    </div>
+)
+}
+export default ViewBeer;
