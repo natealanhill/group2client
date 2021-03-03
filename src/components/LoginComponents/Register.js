@@ -15,14 +15,17 @@ const Register = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const register = async () => {
-      let user = {
-        email,
-        password,
+      let userObj = {
+        user: {
+          email,
+          password,
+        }
       };
 
       const response = await fetch(`${apiURL}/user/register`, {
         method: 'POST',
-        body: JSON.stringify({email: email, password:password}),
+        body: JSON.stringify(userObj),
+
         headers: { 
             'Content-Type': 'application/json',
             'Accept': 'application/json',

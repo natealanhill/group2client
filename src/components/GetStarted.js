@@ -12,7 +12,7 @@ const welcomeStyles = {
   background: 'rgba(0, 0, 0, 0.55)',
 }
 
-const GetStarted = () => {
+const GetStarted = ( {updateToken }) => {
   const useStyles = makeStyles((theme) => ({
     modal: {
       display: "flex",
@@ -68,7 +68,7 @@ const GetStarted = () => {
         <Fade in={open}>
           <div className={classes.paper}>
             {/* This is where all the logic for login and signup rendering is handled */}
-            <Auth />
+            <Auth updateToken={updateToken} />
           </div>
         </Fade>
       </Modal>

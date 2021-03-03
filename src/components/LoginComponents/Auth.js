@@ -42,7 +42,7 @@ const Auth = (props) => {
     const authTernary = () => {
 
       return login ? (
-          <Login />
+          <Login updateToken={props.updateToken} />
       ) : (
           <Register  />
       );

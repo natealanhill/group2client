@@ -6,39 +6,35 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { useHistory } from 'react-router-dom';
 
+const apiURL = 'http://localhost:3000';
+
 
 const Login = (props) => {
   
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const history = useHistory()
-
-    const routeChange = () =>{ 
-      let path = `/dashboard`; 
-      history.push(path);
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      fetch(`${apiURL}/user/login`, {
+        method: 'POST',
+        body: JSON.stringify({user:{email: email, password: password}}),
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
+      }) .then(
+        (response) => response.json()
+      ) .then((data)=> {
+        props.updateToken(data.sessionToken)
+      })
+      
     }
 
-    // Once the form is
-  //   const handleSubmit = (event) => {
-  //     event.preventDefault();
-  //     fetch(`http://localhost:3000/user/login`, {
-  //         method: 'POST',
-  //         body: JSON.stringify({email: email, password: password}),
-  //         headers: new Headers({
-  //             'Content-Type': 'application/json'
-  //         })
-  //     }).then(
-  //         (response) => response.json()
-  //     ).then((data) => {
-  //         props.updateToken(data.sessionToken);
-  //     });
-  // }
 
 
     return(
         
-        <Container component="main" maxWidth="xs">
+        <Container onSubmit={handleSubmit} component="main" maxWidth="xs">
             <h2 id="transition-modal-title" style={{textAlign: 'center'}}>Sign in.</h2>
         <CssBaseline />
         <div>
@@ -53,8 +49,8 @@ const Login = (props) => {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange={(e)=> setUsername(e.target.value)} 
-              value={username}
+              onChange={(e)=> setEmail(e.target.value)} 
+              value={email}
             />
             <TextField
               variant="outlined"
@@ -75,7 +71,6 @@ const Login = (props) => {
               fullWidth
               variant="contained"
               color="primary"
-              onClick = {routeChange}
             >
               Sign In
             </Button>
