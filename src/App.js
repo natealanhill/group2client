@@ -8,6 +8,7 @@ import Auth from './components/LoginComponents/Auth'
 
 import Dashboard from './components/Dashboard'
 import ViewBeer from './components/Cards/ViewBeer'
+
 function App() {
 
   const [sessionToken, setSessionToken] = useState('');
@@ -30,8 +31,9 @@ function App() {
   }
 
 
-  
- 
+  // wth 
+
+
 
   return (
     <Router>
@@ -42,19 +44,22 @@ function App() {
           <Switch>
             <Route exact path="/">
               <GetStarted updateToken={updateToken} /> 
+
+
             </Route>
             {/* <Button variant="contained">Get Started</Button> */}
 
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
-            
+
+
             <Route exact path="/Cards/viewBeer">
               <ViewBeer /> 
-            </Route>
-
-          </Switch>
-
+            </Route>      
+            
+                </Switch>
+          
           {/* Add all entires       */}
           {/* <ViewAllBeers /> */}
         
