@@ -8,14 +8,13 @@ import Container from '@material-ui/core/Container';
 const apiURL = 'http://localhost:3000';
 
 
+
 const Login = (props) => {
   
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-
-
-
+ 
     const handleSubmit = (e) => {
       e.preventDefault()
       fetch(`${apiURL}/user/login`, {
@@ -28,6 +27,7 @@ const Login = (props) => {
         (response) => response.json()
       ) .then((data)=> {
         props.updateToken(data.sessionToken)
+       
       })
       
     }
@@ -73,6 +73,7 @@ const Login = (props) => {
               fullWidth
               variant="contained"
               color="primary"
+        
             >
               Sign In
             </Button>
