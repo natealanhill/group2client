@@ -11,6 +11,7 @@ import ViewBeer from './components/Cards/ViewBeer'
 
 function App() {
 
+ 
   const [sessionToken, setSessionToken] = useState('');
 
   useEffect(() => {
@@ -30,35 +31,40 @@ function App() {
     setSessionToken('');
   }
 
-
-  // wth 
-
-
+  const protectedViews = () => {
+    return sessionToken === localStorage.getItem('token') ? (
+      <Router>
+      <Switch>
+      <Route exact path="/">
+         <Auth updateToken={updateToken} />
+  
+  
+      </Route>
+      {/* <Button variant="contained">Get Started</Button> */}
+  
+      <Route exact path="/dashboard">
+        <Dashboard />
+      </Route>
+  
+  
+      <Route exact path="/Cards/viewBeer">
+        <ViewBeer /> 
+      </Route>      
+      
+    </Switch>
+    </Router>
+    ) : (
+      <GetStarted updateToken={updateToken} />
+    );
+  }
 
   return (
-    <Router>
+   
     <div className="App">
       <header className="App-header">
 
-    
-          <Switch>
-            <Route exact path="/">
-              <GetStarted updateToken={updateToken} /> 
 
-
-            </Route>
-            {/* <Button variant="contained">Get Started</Button> */}
-
-            <Route exact path="/dashboard">
-              <Dashboard />
-            </Route>
-
-
-            <Route exact path="/Cards/viewBeer">
-              <ViewBeer /> 
-            </Route>      
-            
-                </Switch>
+          {protectedViews()}
           
           {/* Add all entires       */}
           {/* <ViewAllBeers /> */}
@@ -67,8 +73,10 @@ function App() {
 
       </header>
     </div>
-    </Router>
   );
 }
 
 export default App;
+
+
+  
