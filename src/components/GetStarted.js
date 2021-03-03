@@ -70,7 +70,7 @@ const GetStarted = ( {updateToken }) => {
             {/* This is where all the logic for login and signup rendering is handled */}
             <Auth updateToken={updateToken} />
           </div>
-        </Fade>
+        </Fade> 
       </Modal>
     </div>
   );
