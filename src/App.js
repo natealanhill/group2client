@@ -25,8 +25,9 @@ function App() {
             </Route>
 
           </Switch>
-       
-       
+          
+          {/* Add all entires       */}
+          {/* <ViewAllBeers /> */}
         
         {/* <Button variant="contained">Get Started</Button> */}
 

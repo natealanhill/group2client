@@ -35,6 +35,7 @@ const ViewBeer = () => {
 
 
 function displayMine() {
+    // e.preventDefault();
     const accessToken = localStorage.getItem('SessionToken')
     fetch('http://localhost:3000/beer/mine', {
         method: 'GET',
