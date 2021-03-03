@@ -4,7 +4,7 @@ import GetStarted from './components/GetStarted'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 import Dashboard from './components/Dashboard'
-
+import ViewBeer from './components/Cards/ViewBeer'
 function App() {
 
 
@@ -23,9 +23,13 @@ function App() {
             <Route exact path="/dashboard">
               <Dashboard />
             </Route>
+            
+            <Route exact path="/Cards/viewBeer">
+              <ViewBeer /> 
+            </Route>
 
           </Switch>
-          
+
           {/* Add all entires       */}
           {/* <ViewAllBeers /> */}
         
