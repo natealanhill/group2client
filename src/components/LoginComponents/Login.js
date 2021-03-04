@@ -53,7 +53,9 @@ const Login = (props) => {
               autoFocus
               onChange={(e)=> setEmail(e.target.value)} 
               value={email}
+              pattern='.+@.+.com' title='Must be in standard email format. Ex: yourname@email.com'
             />
+                
             <TextField
               variant="outlined"
               margin="normal"
