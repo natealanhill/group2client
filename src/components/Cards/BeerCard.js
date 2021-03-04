@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
@@ -22,6 +23,8 @@ import TextField from '@material-ui/core/TextField';
 import SimpleRating from './beerRating';
 import Box from '@material-ui/core/Box';
 
+const apiURL = 'http://localhost:3000';
+
 const options = [
     'Ale',
     'Lager',
@@ -42,6 +45,7 @@ function ConfirmationDialogRaw(props) {
     const [value, setValue] = React.useState(valueProp);
     const radioGroupRef = React.useRef(null);
 
+   
     React.useEffect(() => {
         if (!open) {
             setValue(valueProp);
@@ -65,6 +69,7 @@ function ConfirmationDialogRaw(props) {
     const handleChange = (event) => {
         setValue(event.target.value);
     };
+    console.log(props.beer)
 
     return (
         <Dialog
@@ -104,9 +109,6 @@ function ConfirmationDialogRaw(props) {
             </DialogActions>
         </Dialog>
         
-
-        
-
     );
 }
 
@@ -119,7 +121,43 @@ ConfirmationDialogRaw.propTypes = {
 //-----------------------------------------------//
 
 
-const BeerCard = () => {
+const BeerCard = (props) => {
+// -------------------------------------------------
+    const [name, setName] = useState('');
+    const [type, setType] = useState('');
+    const [rating, setRating] = useState('');
+    const [comments, setComments] = useState('');
+  
+    const addBeer = async () => {
+      let beerObj = {
+        beer: {
+          name,
+          type, 
+          rating, 
+          comments,
+        }
+      }
+      const response = await fetch(`${apiURL}/beer/create`,{
+        method: 'POST',
+        body: JSON.stringify(beerObj),
+  
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Status': 'OK',
+        }
+      })
+      .then(res => res.json())
+      .then (data => {
+        setName('')
+        setType('')
+        setRating('')
+        setComments('')
+      })
+    }
+  
+// -------------------------------------------
+
     const useStyles = makeStyles({
         root: {
             minWidth: 275,
@@ -216,10 +254,12 @@ const BeerCard = () => {
       </div> */}
       
 {/* ========================== */}
-<form className={classes.root} noValidate autoComplete="off">
+<form className={classes.root} noValidate autoComplete="off" onSubmit ={addBeer}>
   <TextField id="standard-secondary" label="Beer Name" color="secondary" variant="outlined" />
+
   <TextField
-  
+     onChange={(e)=> setName(e.target.value)}
+    value={props.beer}
     id="filled-secondary"
     label="Location"
     variant="outlined"
@@ -236,7 +276,7 @@ const BeerCard = () => {
 </form>
 {/* ========================================== */}
                         </List>
-                        <Button onClick={handleSubmit} color= "primary">
+                        <Button onClick={handleClose} color= "primary">
                          Submit
                          </Button>
 
