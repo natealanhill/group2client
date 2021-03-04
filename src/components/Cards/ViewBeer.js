@@ -1,24 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import ViewBeerCard from './ViewBeerCard'
 
-const ViewBeer = () => {
+const ViewBeer = (props) => {
+
     const [beers, setbeers] = useState([])
 
-    const displayMine = (token) => {
+    
+
+    const displayMine = (userToken) => {
+
+        userToken = props.token
 
         fetch('http://localhost:3000/beer/', {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': token
+                'Authorization': userToken
             })
         })
             .then(
                 response =>
                     response.json()
+                   
             )
             .then(
                 json => {
+                    console.log(json)
                     setbeers(json)
                     console.log(beers)
                 })
@@ -29,7 +36,7 @@ const ViewBeer = () => {
     }
     useEffect(() => {
         console.log("Break Check")
-        displayMine(localStorage.getItem('SessionToken'))
+        displayMine(localStorage.getItem('token'))
         
 
     }, [])
