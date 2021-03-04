@@ -1,40 +1,68 @@
-import './App.css';
-import GetStarted from './components/GetStarted'
+import { useState, useEffect } from "react";
 
-import logo from './assets/logo.png'
-import BeerCard from "./components/Cards/BeerCard"
+import "./App.css";
+import GetStarted from "./components/GetStarted";
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Auth from "./components/LoginComponents/Auth";
 
-import Dashboard from './components/Dashboard'
+import Dashboard from "./components/Dashboard";
+import ViewBeer from "./components/Cards/ViewBeer";
 
 function App() {
+  const [sessionToken, setSessionToken] = useState("");
 
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setSessionToken(localStorage.getItem("token"));
+    }
+  }, []);
+
+  const updateToken = (newToken) => {
+    localStorage.setItem("token", newToken);
+    setSessionToken(newToken);
+    console.log(sessionToken);
+  };
+
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken("");
+  };
+
+  const protectedViews = () => {
+    return sessionToken === localStorage.getItem("token") ? (
+      <Router>
+        <Switch>
+          <Route exact path="/">
+          <Dashboard /> 
+          </Route>
+          {/* <Button variant="contained">Get Started</Button> */}
+
+          <Route exact path="/dashboard">
+              <Auth updateToken={updateToken} />
+          </Route>
+
+          <Route exact path="/Cards/viewBeer">
+            <ViewBeer token={sessionToken} />
+          </Route>
+        </Switch>
+      </Router>
+    ) : (
+      <GetStarted updateToken={updateToken} />
+    );
+  };
 
   return (
-    <Router>
     <div className="App">
       <header className="App-header">
+        {protectedViews()}
 
-    
-          <Switch>
-            <Route exact path="/">
-              <GetStarted /> 
-            </Route>
-            {/* <Button variant="contained">Get Started</Button> */}
+        {/* Add all entires       */}
+        {/* <ViewAllBeers /> */}
 
-            <Route exact path="/dashboard">
-              <Dashboard />
-            </Route>
-
-          </Switch>
-       
-        <BeerCard />
         {/* <Button variant="contained">Get Started</Button> */}
-
       </header>
     </div>
-    </Router>
   );
 }
 
