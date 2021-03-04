@@ -12,8 +12,8 @@ const ViewBeer = (props) => {
 
         userToken = props.token
 
-        fetch('http://localhost:3000/beer/', {
-            method: 'GET',
+        fetch('http://localhost:3000/beer/delete/${id}', {
+            method: 'DEL',
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': userToken
@@ -36,7 +36,7 @@ const ViewBeer = (props) => {
             )
     }
     useEffect(() => {
-        console.log("Break Check")
+        console.log("Break Check for Delete")
         displayMine(localStorage.getItem('token'))
 
 
@@ -54,12 +54,12 @@ const ViewBeer = (props) => {
 
                 {beers.map(beer => {
                     return (
-                        <div className="viewBeerCard">
+                        <div className="deleteBeerCard">
                             {/* <Grid container>
                                 <Grid item xs={2}> */}
 
 
-                            <ViewBeerCard 
+                            <DeleteBeerCard 
                                 id={beer.id}
                                 name={beer.name}
                                 location={beer.location}
