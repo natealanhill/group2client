@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-const apiURL = 'http://localhost:8080';
+const apiURL = 'http://localhost:3000';
 
 
 
@@ -25,6 +25,7 @@ const Register = () => {
       const response = await fetch(`${apiURL}/user/register`, {
         method: 'POST',
         body: JSON.stringify(userObj),
+
         headers: { 
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -41,46 +42,6 @@ const Register = () => {
         <div>
           <form  noValidate>
 
-
-          <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="firstName"
-              label="First Name"
-              name="firstName"
-              autoComplete="firstName"
-              autoFocus
-              onChange={(e)=> setFirstName(e.target.value)} 
-              value={firstName}
-            />
-
-          <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="lastName"
-              label="Last Name"
-              name="lastName"
-              autoComplete="lastName"
-              autoFocus
-              onChange={(e)=> setLastName(e.target.value)} 
-              value={firstName}
-            />
-      
-              <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="birthday"
-              label ="Date of Birth"
-              name="birthday"
-/>
-            
-
           <TextField
                 variant="outlined"
               margin="normal"
@@ -93,6 +54,7 @@ const Register = () => {
               autoFocus
               onChange={(e)=> setEmail(e.target.value)} 
               value={email}
+              pattern='.+@.+.com' title='Must be in standard email format. Ex: yourname@email.com'
             />
             <TextField
               variant="outlined"
