@@ -41,46 +41,6 @@ const Register = () => {
         <div>
           <form  noValidate>
 
-
-          <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="firstName"
-              label="First Name"
-              name="firstName"
-              autoComplete="firstName"
-              autoFocus
-              onChange={(e)=> setFirstName(e.target.value)} 
-              value={firstName}
-            />
-
-          <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="lastName"
-              label="Last Name"
-              name="lastName"
-              autoComplete="lastName"
-              autoFocus
-              onChange={(e)=> setLastName(e.target.value)} 
-              value={firstName}
-            />
-      
-              <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="birthday"
-              label ="Date of Birth"
-              name="birthday"
-/>
-            
-
           <TextField
                 variant="outlined"
               margin="normal"
@@ -93,6 +53,7 @@ const Register = () => {
               autoFocus
               onChange={(e)=> setEmail(e.target.value)} 
               value={email}
+              pattern='.+@.+.com' title='Must be in standard email format. Ex: yourname@email.com'
             />
             <TextField
               variant="outlined"
