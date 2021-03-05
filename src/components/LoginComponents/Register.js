@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+
 const apiURL = 'http://localhost:3000';
 
 
@@ -17,8 +18,8 @@ const Register = () => {
     const register = async () => {
       let userObj = {
         user: {
-          email,
-          password,
+          email: email,
+          password: password,
         }
       };
 
