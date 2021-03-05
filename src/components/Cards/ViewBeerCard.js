@@ -41,9 +41,10 @@ const deleteBeer = (props) => {
             .then(
                 json => {
                 console.log(json);
-                function myFunction() {
-                    alert("Hello! I am an alert box!");
-                  }
+
+                // function myFunction() {
+                //     alert("Hello! I am an alert box!");
+                //   }
             })
             .catch(
             error =>
@@ -86,9 +87,13 @@ const deleteBeer = (props) => {
                         {/* <Button size="small" color="primary">
                             Share
                         </Button> */}
-                        <Button size="small" color="primary">
+                        
+                        {/* <Link to="/Cards/editBeer">
+                        <Button onClick={editBeer}  variant="contained">
                             Edit
                         </Button>
+                        </Link> */}
+
 
                         <Link to="/Cards/viewBeer">
                         <Button onClick={deleteBeer}  variant="contained">
@@ -96,8 +101,6 @@ const deleteBeer = (props) => {
                                 {id}
                         </Button>
                         </Link>
-
-
                     </CardActions>
                 </Card>
             </Grid>
