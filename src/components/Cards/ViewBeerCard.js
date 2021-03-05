@@ -52,9 +52,9 @@ export default function MediaCard({ id, name, location, rating, comments }) {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" color="primary">
+                        {/* <Button size="small" color="primary">
                             Share
-                        </Button>
+                        </Button> */}
                         <Button size="small" color="primary">
                             Edit
                         </Button>

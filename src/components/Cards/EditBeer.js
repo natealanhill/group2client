@@ -1,6 +1,69 @@
 import React, { useState, useEffect } from 'react';
-import DeleteBeerCard from './DeleteBeerCard';
+import ViewBeerCard from './ViewBeerCard'
 import Grid from '@material-ui/core/Grid'
+
+// code from the Client module
+function editJournal(postId) {
+    console.log(postId)
+    const fetch_url = `http://localhost:3000/beer/edit${postId}`
+    const accessToken = localStorage.getItem('SessionToken')
+
+    let card = document.getElementById(postId)
+    let input = document.createElement('input')
+
+    if (card.childNodes.length <2) {
+        card.appendChild(input)
+        input.setAttribute('type', 'text')
+        input.setAttribute('id', 'updatedEntry')
+        input.setAttribute('placeholder', 'Edit yout Beer Entry')
+    }else{
+
+        let updated = document.getElementById('updatedEntry').value
+        let updateEntry = { journal: {entry: updated}};
+        const response = fetch(fetch_url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': accessToken
+            },
+            body:JSON.stringify(updateEntry)
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data)
+            displayMine();
+        })
+        card.removeChild(card.lastChild)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const ViewBeer = (props) => {
 
@@ -11,9 +74,9 @@ const ViewBeer = (props) => {
     const displayMine = (userToken) => {
 
         userToken = props.token
-        const fetch_url=`http://localhost:3000/beer/delete/${id}`
-        fetch(fetch_url, {
-            method: 'DELETE',
+
+        fetch('http://localhost:3000/beer/delete/${id}', {
+            method: 'DEL',
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': userToken
