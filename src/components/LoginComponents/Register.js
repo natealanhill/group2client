@@ -28,8 +28,8 @@ const Register = () => {
 
         headers: { 
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Status': 'OK',
+            // 'Accept': 'application/json',
+            // 'Status': 'OK',
           }
     
       });
