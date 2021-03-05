@@ -8,9 +8,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import {Link} from "react-router-dom";
-// import BWRating from './BWRating.txt';
+import { Link } from "react-router-dom";
 
+
+export default function MediaCard({ id, name, location, rating, comments }) {
 const useStyles = makeStyles({
     root: {
         minWidth: 300,
@@ -20,7 +21,37 @@ const useStyles = makeStyles({
     },
 });
 
-export default function MediaCard({ id, name, location, rating, comments }) {
+const deleteBeer = (props) => {
+    
+    const userToken = localStorage.getItem("token") 
+    // const id = props.beer.id
+    //    console.log(props.beer.id)
+    const fetch_url = `http://localhost:3000/beer/delete/${id}`
+    fetch(fetch_url, {
+        method: 'DELETE',
+        headers: new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': userToken
+        })
+    })
+        .then(
+            response =>
+            response.json()
+            )
+            .then(
+                json => {
+                console.log(json);
+                function myFunction() {
+                    alert("Hello! I am an alert box!");
+                  }
+            })
+            .catch(
+            error =>
+            console.error('Error:', error)
+        )
+    }
+
+
     const classes = useStyles();
 
     return (
@@ -59,13 +90,14 @@ export default function MediaCard({ id, name, location, rating, comments }) {
                             Edit
                         </Button>
 
-                        <Link to="/beer/delete/4">
-                            <Button variant="contained">
-                                Delete
+                        <Link to="/Cards/viewBeer">
+                        <Button onClick={deleteBeer}  variant="contained">
+                            Delete
                                 {id}
-                        </Button></Link>
+                        </Button>
+                        </Link>
 
-                        
+
                     </CardActions>
                 </Card>
             </Grid>

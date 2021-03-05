@@ -11,8 +11,8 @@ const ViewBeer = (props) => {
     const displayMine = (userToken) => {
 
         userToken = props.token
-
-        fetch('http://localhost:3000/beer/', {
+        console.log(props.token)
+        fetch('http://localhost:3000/beer/mine/', {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -28,7 +28,6 @@ const ViewBeer = (props) => {
                 json => {
                     console.log(json);
                     setbeers(json);
-                    console.log(beers);
                 })
             .catch(
                 error =>
@@ -37,10 +36,10 @@ const ViewBeer = (props) => {
     }
     useEffect(() => {
         console.log("Break Check")
+        console.log(beers);
         displayMine(localStorage.getItem('token'))
-
-
     }, [])
+    
     // const accessToken = localStorage.getItem('SessionToken')
 
 
@@ -59,13 +58,16 @@ const ViewBeer = (props) => {
                                 <Grid item xs={2}> */}
 
 
-                            <ViewBeerCard 
+                            <ViewBeerCard
+                                token={props.token}
+                                // beer={beers}
                                 id={beer.id}
                                 name={beer.name}
                                 location={beer.location}
                                 rating={beer.rating}
                                 comments={beer.comments}
-                                img={beer.img} />
+                                img={beer.img} 
+                                />
                             <br>
                             </br>
                             {/* </Grid>
