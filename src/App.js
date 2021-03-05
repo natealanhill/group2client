@@ -45,6 +45,9 @@ function App() {
           <Route exact path="/Cards/viewBeer">
             <ViewBeer token={sessionToken} />
           </Route>
+          <Route exact path="/Cards/viewBeer">
+            <ViewBeer token={sessionToken} />
+          </Route>
         </Switch>
       </Router>
     ) : (

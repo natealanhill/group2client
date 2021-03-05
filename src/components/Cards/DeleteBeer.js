@@ -8,7 +8,7 @@ const ViewBeer = (props) => {
 
 
 
-    const displayMine = (userToken) => {
+    const deleteBeer = (userToken) => {
 
         userToken = props.token
         const fetch_url=`http://localhost:3000/beer/delete/${id}`
