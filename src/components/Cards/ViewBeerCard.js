@@ -11,7 +11,6 @@ import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
-//additions while implmenting the edit endpoint using workout log as template
 import { Container, Row, Col } from 'reactstrap';
 import EditBeer from './EditBeer';
 
@@ -24,7 +23,6 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
         rating: rating,
         comments: comments
     }
-    //State variables associated with edit endpoint
     const [isUpdating, setIsUpdating] = useState(false)
 
     const useStyles = makeStyles({
@@ -36,7 +34,6 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
    
     const deleteBeer = (id) => {
    
-        //    console.log(props.beer.id)
         const fetch_url = `http://localhost:3000/beer/delete/${id}`
         fetch(fetch_url, {
             method: 'DELETE',
@@ -52,10 +49,6 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
             .then(
                 json => {
                     console.log(json);
-
-                    // function myFunction() {
-                    //     alert("Hello! I am an alert box!");
-                    //   }
                 })
             .catch(
                 error =>
@@ -66,8 +59,7 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
     const classes = useStyles();
 
     return (
-        // <Grid Container spacing={4}>
-        //     <Grid item xs={4}>
+
 
         <Card className={classes.root} variant="">
             <CardActionArea>
@@ -101,26 +93,20 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
                 {/* <Button size="small" color="primary">
                             Share
                         </Button> */}
-
-                {/* <Link to="/Cards/editBeer"> */}
+              
                 <Button onClick={() => setIsUpdating(!isUpdating)} variant="contained">
                     Edit
                 </Button>
                 {isUpdating && <EditBeer token={userToken} bId={id} beer={beerInfo} setIsUpdating={setIsUpdating}/>}
-                {/* </Link> */}
-
-
+            
                 <Link to="/Cards/viewBeer">
                     <Button onClick={() => deleteBeer(id)} variant="contained">
                         Delete
-                                {id}
                     </Button>
                 </Link>
             </CardActions>
         </Card>
-        //     </Grid>
 
-        // </Grid>
 
     );
 }
