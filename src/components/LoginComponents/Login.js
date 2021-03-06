@@ -1,20 +1,42 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 
+const apiURL = 'http://localhost:3000';
+
+
 
 const Login = (props) => {
-
-    const [username, setUsername] = useState('');
+  
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+ 
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      fetch(`${apiURL}/user/login`, {
+        method: 'POST',
+        body: JSON.stringify({user:{email: email, password: password}}),
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
+      }) .then(
+        (response) => response.json()
+      ) .then((data)=> {
+        props.updateToken(data.sessionToken)
+       
+      })
+      
+    }
+
 
 
     return(
         
-        <Container component="main" maxWidth="xs">
+        <Container onSubmit={handleSubmit} component="main" maxWidth="xs">
             <h2 id="transition-modal-title" style={{textAlign: 'center'}}>Sign in.</h2>
         <CssBaseline />
         <div>
@@ -29,9 +51,11 @@ const Login = (props) => {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange={(e)=> setUsername(e.target.value)} 
-              value={username}
+              onChange={(e)=> setEmail(e.target.value)} 
+              value={email}
+              pattern='.+@.+.com' title='Must be in standard email format. Ex: yourname@email.com'
             />
+                
             <TextField
               variant="outlined"
               margin="normal"
@@ -51,7 +75,7 @@ const Login = (props) => {
               fullWidth
               variant="contained"
               color="primary"
-             
+
             >
               Sign In
             </Button>
