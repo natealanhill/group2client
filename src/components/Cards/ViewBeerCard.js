@@ -33,9 +33,22 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
     });
 
     const userToken = localStorage.getItem("token")
+
    
     const deleteBeer = (id) => {
    
+
+
+
+
+
+
+
+
+    const deleteBeer = (props) => {
+
+        // const id = props.beer.id
+
         //    console.log(props.beer.id)
         const fetch_url = `http://localhost:3000/beer/delete/${id}`
         fetch(fetch_url, {

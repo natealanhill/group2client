@@ -13,8 +13,7 @@ const Register = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+ 
     const register = async () => {
       let userObj = {
         user: {
@@ -29,8 +28,8 @@ const Register = () => {
 
         headers: { 
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Status': 'OK',
+            // 'Accept': 'application/json',
+            // 'Status': 'OK',
           }
     
       });
