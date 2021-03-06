@@ -6,8 +6,6 @@ const ViewBeer = (props) => {
 
     const [beers, setbeers] = useState([])
 
-
-
     const displayMine = (userToken) => {
 
         userToken = props.token
@@ -50,7 +48,6 @@ const ViewBeer = (props) => {
             <container background-color="white">
                 {console.log("ViewBeer Component")}
 
-
                 {beers.map(beer => {
                     return (
                         <div className="viewBeerCard">
@@ -59,6 +56,7 @@ const ViewBeer = (props) => {
 
 
                             <ViewBeerCard
+                                displayMine={displayMine}
                                 token={props.token}
                                 // beer={beers}
                                 id={beer.id}
