@@ -6,9 +6,9 @@ import Auth from "./components/LoginComponents/Auth";
 import Dashboard from "./components/Dashboard";
 import ViewBeer from "./components/Cards/ViewBeer";
 
-//additions while implmenting the edit endpoint using workout log as template
-import {Container, Row, Col} from 'reactstrap';
-import EditBeer from './components/Cards/EditBeer';
+// //additions while implmenting the edit endpoint using workout log as template
+// import {Container, Row, Col} from 'reactstrap';
+// import EditBeer from './components/Cards/EditBeer';
 
 
 
