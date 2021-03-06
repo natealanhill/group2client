@@ -5,9 +5,9 @@ switch (window.location.hostname) {
     case '127.0.0.1':
         // this is the local host name of the server/API
         APIURL = 'http://localhost:3000';
-        break; 
+        break
     // this is the deployed React application
-    case 'bwmclient.herokuapp.com':
+    case 'beerwingmanclient.herokuapp.com':
         // this is the full url of the deployed server/API
         APIURL = 'https://group2beerwingman.herokuapp.com';
 }
