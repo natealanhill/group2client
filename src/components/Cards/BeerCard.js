@@ -25,32 +25,32 @@ function ConfirmationDialogRaw(props) {
 	const [ value, setValue ] = React.useState(valueProp);
 	const radioGroupRef = React.useRef(null);
 
-	React.useEffect(
-		() => {
-			if (!open) {
-				setValue(valueProp);
-			}
-		},
-		[ valueProp, open ]
-	);
+	// React.useEffect(
+	// 	() => {
+	// 		if (!open) {
+	// 			setValue(valueProp);
+	// 		}
+	// 	},
+	// 	[ valueProp, open ]
+	// );
 
-	const handleEntering = () => {
-		if (radioGroupRef.current != null) {
-			radioGroupRef.current.focus();
-		}
-	};
+	// const handleEntering = () => {
+	// 	if (radioGroupRef.current != null) {
+	// 		radioGroupRef.current.focus();
+	// 	}
+	// };
 
-	const handleCancel = () => {
-		onClose();
-	};
+	// const handleCancel = () => {
+	// 	onClose();
+	// };
 
-	const handleOk = () => {
-		onClose(value);
-	};
+	// const handleOk = () => {
+	// 	onClose(value);
+	// };
 
-	const handleChange = (event) => {
-		setValue(event.target.value);
-	};
+	// const handleChange = (event) => {
+	// 	setValue(event.target.value);
+	// };
 	// console.log(props.beer)
 
 	return (
@@ -74,7 +74,7 @@ const BeerCard = (props) => {
 	const [ rating, setRating ] = useState('');
 	const [ comments, setComments ] = useState('');
 
-	const addBeer = async (e) => {
+	const addBeer = async (e) => {     //is being called on line 283
         console.log(name, type, rating, comments, location)
 		e.preventDefault();
 		const response = await fetch(`${apiURL}/beer/create`, {
@@ -153,19 +153,20 @@ const BeerCard = (props) => {
 		}
 	};
 
-	const handleEdit = () => {
-		onClose(value);
-	};
+	// const handleEdit = () => {
+	// 	onClose(value);
+	// };
 
-	const handleCancel = () => {
-		onClose(value);
-	};
+	// const handleCancel = () => {
+	// 	onClose(value);
+	// };
 
 	const handleSubmit = () => {
 		//Closes the form once submit is clicked
 		onClose(value);
 	};
-	//---------------------------------
+
+	//-----Card buildout ----------
 	return (
 		<div>
 			<Card className={classes.root} variant="outlined ">
@@ -214,7 +215,7 @@ const BeerCard = (props) => {
       </Box>
       </div> */}
 
-							{/* //onSubmit---Calling addBeer Function */}
+							
 							<form className={classes.root} noValidate autoComplete="off">
 								<TextField
                                     onChange={(e) => setName(e.target.value)}
