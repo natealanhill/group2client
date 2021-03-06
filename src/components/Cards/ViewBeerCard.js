@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -12,69 +12,91 @@ import { Link } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 //additions while implmenting the edit endpoint using workout log as template
-import {Container, Row, Col} from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import EditBeer from './EditBeer';
 
 
 export default function MediaCard({ id, name, location, type, rating, comments }) {
-//State variables associated with edit endpoint
-const [beers, setBeers] = useState({});
-const [updateActive, setUpdateActive] = useState(false);
-const [beerToUpdate, setBeerToUpdate] = useState({});
-
+    //State variables associated with edit endpoint
+    const [beers, setBeers] = useState([]);
+    const [updateActive, setUpdateActive] = useState(false);
+    const [beerToUpdate, setBeerToUpdate] = useState({});
 
     const useStyles = makeStyles({
-    root: {
-        minWidth: 300,
-    },
-    media: {
-        height: 140,
-    },
-});
+        root: { minWidth: 300, },
+        media: { height: 140, },
+    });
 
+    const userToken = localStorage.getItem("token")
 
-const userToken = localStorage.getItem("token") 
-
-//EDIT ADD HERE 
-
-
-const EditBeer = (props) => {
-    const [editName, setEditName] = useState(props.beerToUpdate.name);
-    const [editLocation, setEditLocation] = useState(props.beerToUpdate.location);
-    const [editRating, setEditRating] = useState(props.beerToUpdate.rating);
-    const [editType, setEditType] = useState(props.beerToUpdate.type);
-    const [editComments, setEditComments] = useState(props.beerToUpdate.comments);
-    const beerUpdate = (event, beer) => {
-        event.preventDefault();
-        fetch(`http://localhost:3000/edit/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify({
-                beer: {
-                    name: editName,
-                    location: editLocation,
-                    rating: editRating,
-                    type: editType,
-                    comments: editComments,
-                }}),
+    //EDIT ADD HERE 
+    const EditBeer = (props) => {
+        console.log(props);
+        console.log(name);
+        console.log(beerToUpdate);
+        // const [editName, setEditName] = useState(props.name);
+        // console.log(name);
+        // const [editLocation, setEditLocation] = useState(props.beerToUpdate.location);
+        // const [editRating, setEditRating] = useState(props.beerToUpdate.rating);
+        // const [editType, setEditType] = useState(props.beerToUpdate.type);
+        // const [editComments, setEditComments] = useState(props.beerToUpdate.comments);
+        const beerUpdate = (event, beer) => {
+            event.preventDefault();
+            fetch(`http://localhost:3000/edit/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({
+                    beer: {
+                        // // name: editName,
+                        // location: editLocation,
+                        // rating: editRating,
+                        // type: editType,
+                        // comments: editComments,
+                    }
+                }),
                 header: new Headers({
                     'Content-Type': 'application/json',
                     'Authorization': userToken
                 })
-                
+
             }).then((res) => {
                 props.fetchBeer();
                 props.updateOff();
             })
         }
-    
-    return (
-        <>
-            This is Beer Edit
-        </>
-    )
-}
 
-// export default EditBeer;
+        return (
+            <Modal isOpen={true}>
+                <ModalHeader>Edit a Beer</ModalHeader>
+                <ModalBody>
+                    <Form onSubmit={id}>
+                        {console.log("Form called")}
+                        {/* <FormGroup>
+                            <Label htmlFor="name">Edit Name:</Label>
+                            <Input name="result" value={editName} onChange={(e) => setEditName(e.target.value)} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="location">Edit location:</Label>
+                            <Input name="result" value={editLocation} onChange={(e) => setEditName(e.target.value)} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="type">Edit Type:</Label>
+                            <Input name="result" value={editType} onChange={(e) => setEditName(e.target.value)} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="rating">Edit Rating:</Label>
+                            <Input name="result" value={editRating} onChange={(e) => setEditName(e.target.value)} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="comments">Edit Comments:</Label>
+                            <Input name="result" value={editComments} onChange={(e) => setEditName(e.target.value)} />
+                        </FormGroup> */}
+                    </Form>
+                </ModalBody>
+            </Modal>
+        )
+    }
+
+    // export default EditBeer;
 
 
 
@@ -82,34 +104,34 @@ const EditBeer = (props) => {
 
 
 
-const deleteBeer = (props) => {
-    
-    // const id = props.beer.id
-    //    console.log(props.beer.id)
-    const fetch_url = `http://localhost:3000/beer/delete/${id}`
-    fetch(fetch_url, {
-        method: 'DELETE',
-        headers: new Headers({
-            'Content-Type': 'application/json',
-            'Authorization': userToken
+    const deleteBeer = (props) => {
+
+        // const id = props.beer.id
+        //    console.log(props.beer.id)
+        const fetch_url = `http://localhost:3000/beer/delete/${id}`
+        fetch(fetch_url, {
+            method: 'DELETE',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': userToken
+            })
         })
-    })
-        .then(
-            response =>
-            response.json()
+            .then(
+                response =>
+                    response.json()
             )
             .then(
                 json => {
-                console.log(json);
+                    console.log(json);
 
-                // function myFunction() {
-                //     alert("Hello! I am an alert box!");
-                //   }
-            })
+                    // function myFunction() {
+                    //     alert("Hello! I am an alert box!");
+                    //   }
+                })
             .catch(
-            error =>
-            console.error('Error:', error)
-        )
+                error =>
+                    console.error('Error:', error)
+            )
     }
 
 
@@ -153,19 +175,19 @@ const deleteBeer = (props) => {
                         {/* <Button size="small" color="primary">
                             Share
                         </Button> */}
-                        
+
                         <Link to="/Cards/editBeer">
-                        <Button onClick={EditBeer}  variant="contained">
-                            Edit
+                            <Button onClick={EditBeer} variant="contained">
+                                Edit
                         </Button>
                         </Link>
 
 
                         <Link to="/Cards/viewBeer">
-                        <Button onClick={deleteBeer}  variant="contained">
-                            Delete
+                            <Button onClick={deleteBeer} variant="contained">
+                                Delete
                                 {id}
-                        </Button>
+                            </Button>
                         </Link>
                     </CardActions>
                 </Card>
