@@ -4,10 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-
-const apiURL = 'http://localhost:3000';
-
-
+import APIURL from '../../helpers/environment';
 
 const Register = () => {
 
@@ -22,7 +19,7 @@ const Register = () => {
         }
       };
 
-      const response = await fetch(`${apiURL}/user/register`, {
+      const response = await fetch(`${APIURL}/user/register`, {
         method: 'POST',
         body: JSON.stringify(userObj),
 

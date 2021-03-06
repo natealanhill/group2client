@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ViewBeerCard from './ViewBeerCard'
 import Grid from '@material-ui/core/Grid'
+import APIURL from '../../helpers/environment';
 
 const ViewBeer = (props) => {
 
@@ -10,7 +11,7 @@ const ViewBeer = (props) => {
 
         userToken = props.token
         console.log(props.token)
-        fetch('http://localhost:3000/beer/mine/', {
+        fetch(`${APIURL}/beer/mine/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',

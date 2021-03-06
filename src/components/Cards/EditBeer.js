@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 const EditBeer = ({token, bId, beer, setIsUpdating}) => {
     console.log(beer, token)
@@ -11,7 +12,7 @@ const EditBeer = ({token, bId, beer, setIsUpdating}) => {
     const [editComments, setEditComments] = useState(beer.comments);
     const beerUpdate = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/beer/edit/${bId}`, {
+        fetch(`${APIURL}/beer/edit/${bId}`, {
             method: 'PUT',
             body: JSON.stringify({
                 beer: {
