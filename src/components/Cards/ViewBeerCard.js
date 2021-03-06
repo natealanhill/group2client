@@ -13,7 +13,7 @@ import { Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 're
 
 import { Container, Row, Col } from 'reactstrap';
 import EditBeer from './EditBeer';
-
+import APIURL from '../../helpers/environment';
 
 export default function MediaCard({ id, name, location, type, rating, comments, displayMine }) {
     const beerInfo = {
@@ -35,7 +35,7 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
    
     const deleteBeer = (id) => {
 
-        const fetch_url = `http://localhost:3000/beer/delete/${id}`
+        const fetch_url = `${APIURL}/beer/delete/${id}`
         fetch(fetch_url, {
             method: 'DELETE',
             headers: new Headers({

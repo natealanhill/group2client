@@ -14,9 +14,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 import './BeerCard.css';
 import TextField from '@material-ui/core/TextField';
+import APIURL from '../../helpers/environment';
 
-
-const apiURL = 'http://localhost:3000';
 
 
 
@@ -77,7 +76,7 @@ const BeerCard = (props) => {
 	const addBeer = async (e) => {     //is being called on line 283
         console.log(name, type, rating, comments, location)
 		e.preventDefault();
-		const response = await fetch(`${apiURL}/beer/create`, {
+		const response = await fetch(`${APIURL}/beer/create`, {
 			method: 'POST',
 			body: JSON.stringify({
 				beer: {

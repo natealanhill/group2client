@@ -4,10 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-
-const apiURL = 'http://localhost:3000';
-
-
+import APIURL from '../../helpers/environment'
 
 const Login = (props) => {
   
@@ -17,7 +14,7 @@ const Login = (props) => {
  
     const handleSubmit = (e) => {
       e.preventDefault()
-      fetch(`${apiURL}/user/login`, {
+      fetch(`${APIURL}/user/login`, {
         method: 'POST',
         body: JSON.stringify({user:{email: email, password: password}}),
         headers: new Headers({
