@@ -1,17 +1,24 @@
 import { useState, useEffect } from "react";
-
 import "./App.css";
 import GetStarted from "./components/GetStarted";
-
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Auth from "./components/LoginComponents/Auth";
-
 import Dashboard from "./components/Dashboard";
 import ViewBeer from "./components/Cards/ViewBeer";
 
+//additions while implmenting the edit endpoint using workout log as template
+import {Container, Row, Col} from 'reactstrap';
+import EditBeer from './components/Cards/EditBeer';
+
+
+
 function App() {
   const [sessionToken, setSessionToken] = useState("");
-
+  //State variables associated with edit endpoint
+  const [beers, setBeers] = useState({});
+  const [updateActive, setUpdateActive] = useState(false);
+  const [beerToUpdate, setBeerToUpdate] = useState({});
+  
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setSessionToken(localStorage.getItem("token"));

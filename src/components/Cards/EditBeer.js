@@ -1,7 +1,7 @@
-import React, {use State} from 'react';
+import React, {useState} from 'react';
 
 
-Name location type rating comments
+
 const EditBeer = (props) => {
     const [editName, setEditName] = useState(props.beerToUpdate.name);
     const [editLocation, setEditLocation] = useState(props.beerToUpdate.location);
