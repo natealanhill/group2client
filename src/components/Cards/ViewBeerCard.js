@@ -31,7 +31,7 @@ export default function MediaCard({ id, name, location, type, rating, comments }
 
     //EDIT ADD HERE 
     const EditBeer = (props) => {
-        console.log(props);
+        console.log(props.name);
         console.log(name);
         console.log(beerToUpdate);
         // const [editName, setEditName] = useState(props.name);

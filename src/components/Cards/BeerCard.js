@@ -11,33 +11,14 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
-import Dialog from '@material-ui/core/Dialog';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 import './BeerCard.css';
 import TextField from '@material-ui/core/TextField';
-import SimpleRating from './beerRating';
-import Box from '@material-ui/core/Box';
+
 
 const apiURL = 'http://localhost:3000';
 
-const options = [
-	'Ale',
-	'Lager',
-	'Porter',
-	'Stout',
-	'Blonde Ale',
-	'Pale Ale',
-	'India Pale Ale',
-	'Wheat',
-	'Pilsner',
-	'Sour Ale',
-	'Other'
-];
+
 
 function ConfirmationDialogRaw(props) {
 	const { onClose, value: valueProp, open, ...other } = props;
