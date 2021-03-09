@@ -7,11 +7,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
-import { Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
+// import { Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
-import { Container, Row, Col } from 'reactstrap';
+// import { Container, Row, Col } from 'reactstrap';
 import EditBeer from './EditBeer';
 import APIURL from '../../helpers/environment';
 
@@ -78,6 +78,9 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h1" color="">
                         Location: {location}
+                    </Typography>
+                    <Typography gutterBottom variant="h5" component="h1" color="">
+                        Type: {type}
                     </Typography>
                     <Typography gutterBottom variant="h10" component="h9">
                         Rating
