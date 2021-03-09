@@ -10,7 +10,11 @@ const Register = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
- 
+    console.log(APIURL);
+    console.log("BREAK CHECK");
+    const fetch_URL = `${APIURL}/user/register`
+    console.log(fetch_URL)
+
     const register = async () => {
       let userObj = {
         user: {
@@ -18,7 +22,6 @@ const Register = () => {
           password: password,
         }
       };
-
       const response = await fetch(`${APIURL}/user/register`, {
         method: 'POST',
         body: JSON.stringify(userObj),

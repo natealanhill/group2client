@@ -233,6 +233,7 @@ const BeerCard = (props) => {
 									variant="outlined"
 									color="secondary"
 								/>
+								
 								<br />
 								<br />
 								<TextField
@@ -243,7 +244,7 @@ const BeerCard = (props) => {
 									variant="outlined"
 									color="secondary"
 								/>
-                                <TextField
+								<TextField
                                 onChange={(e) => setRating(e.target.value)}
                                 value={rating}
 									id="outlined-secondary"

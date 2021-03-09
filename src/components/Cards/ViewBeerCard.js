@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 // import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
-// import { Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 // import { Container, Row, Col } from 'reactstrap';
 import EditBeer from './EditBeer';
@@ -24,7 +24,8 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
         comments: comments
     }
     const [isUpdating, setIsUpdating] = useState(false)
-
+    console.log(type)
+    console.log("type break")
     const useStyles = makeStyles({
         root: { minWidth: 300, },
         media: { height: 140, },
@@ -79,7 +80,7 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
                     <Typography gutterBottom variant="h5" component="h1" color="">
                         Location: {location}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h1" color="">
+                    <Typography gutterBottom variant="h7" component="h4" color="">
                         Type: {type}
                     </Typography>
                     <Typography gutterBottom variant="h10" component="h9">
