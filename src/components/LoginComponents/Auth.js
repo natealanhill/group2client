@@ -16,6 +16,7 @@ const Auth = (props) => {
     // STYLES 
     const buttonPink = {
       marginTop: '30px',
+      backgroundColor: "black",
       marginLeft: 'auto',
       marginRight: 'auto',
       width: '90%',
