@@ -39,10 +39,7 @@ const ViewBeer = (props) => {
         displayMine(localStorage.getItem('token'))
     }, [])
     
-    // const accessToken = localStorage.getItem('SessionToken')
 
-
-    // displayMine();
 
     return (
         <div color="white">
@@ -52,8 +49,7 @@ const ViewBeer = (props) => {
                 {beers.map(beer => {
                     return (
                         <div className="viewBeerCard">
-                            {/* <Grid container>
-                                <Grid item xs={2}> */}
+                            
 
 
                             <ViewBeerCard
@@ -69,8 +65,7 @@ const ViewBeer = (props) => {
                                 />
                             <br>
                             </br>
-                            {/* </Grid>
-                                    </Grid> */}
+                          
                         </div>
                     )
 

@@ -7,11 +7,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-// import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
-// import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import EditBeer from './EditBeer';
 import APIURL from '../../helpers/environment';
 
@@ -62,7 +62,8 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
 
     return (
 
-
+<Grid container>
+                                <Grid item xs={2}>
         <Card className={classes.root} variant="">
             <CardActionArea>
                 <CardMedia
@@ -80,9 +81,9 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
                     <Typography gutterBottom variant="h5" component="h1" color="">
                         Location: {location}
                     </Typography>
-                    <Typography gutterBottom variant="h7" component="h4" color="">
+                    {/* <Typography gutterBottom variant="h7" component="h4" color="">
                         Type: {type}
-                    </Typography>
+                    </Typography> */}
                     <Typography gutterBottom variant="h10" component="h9">
                         Rating
                                 <br></br>
@@ -98,12 +99,12 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
                 {/* <Button size="small" color="primary">
                             Share
                         </Button> */}
-              
+                <Link to="/Cards/viewBeer">
                 <Button onClick={() => setIsUpdating(!isUpdating)} variant="contained">
                     Edit
                 </Button>
                 {isUpdating && <EditBeer token={userToken} bId={id} beer={beerInfo} setIsUpdating={setIsUpdating}/>}
-            
+                </Link>
                 <Link to="/Cards/viewBeer">
                     <Button onClick={() => deleteBeer(id)} variant="contained">
                         Delete
@@ -111,7 +112,8 @@ export default function MediaCard({ id, name, location, type, rating, comments, 
                 </Link>
             </CardActions>
         </Card>
-
+        </Grid>
+                                    </Grid>
 
     );
 }

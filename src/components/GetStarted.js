@@ -6,7 +6,7 @@ import Fade from "@material-ui/core/Fade";
 import Button from "@material-ui/core/Button";
 import Auth from "./LoginComponents/Auth";
 
-import logo from '../assets/logo.png'
+import logo from '../assets/logo2.png'
 
 const welcomeStyles = {
   background: 'rgba(0, 0, 0, 0.55)',
@@ -47,7 +47,7 @@ const GetStarted = ( {updateToken }) => {
         style={{ width: "45%", height: "45%" }}
       />
       <p>
-        <code style={welcomeStyles}>Welcome to your Beer Wingman.</code>
+        <code style={welcomeStyles}>-Welcome to your Beer Wingman-</code>
         {/* <p style={{marginTop: '2px', marginBottom: '3px ', fontSize: '15px'}}> Create your own custom BeerJournal to rate, describe, and remember the beers you taste or drink. </p> */}
       </p>
       <Button variant="contained" type="button" onClick={handleOpen}>

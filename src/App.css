@@ -5,8 +5,8 @@
 
 .App-header {
 
-  
-  background-image: url("./assets/background.jpg"); 
+  background-color: black;
+  background-image: url("./assets/bg2.png"); 
   background-repeat: no-repeat;
   background-size: auto;
   min-height: 100vh;

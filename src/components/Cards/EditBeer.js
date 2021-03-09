@@ -36,7 +36,7 @@ const EditBeer = ({token, bId, beer, setIsUpdating}) => {
   
         return (
             <Modal isOpen={true}>
-                <ModalHeader>Edit a Beer</ModalHeader>
+                <ModalHeader>Edit {beer.name} </ModalHeader>
                 <ModalBody>
                     <Form onSubmit={(e) => beerUpdate(e)}>
                         {console.log("Form called")}
